@@ -20,8 +20,7 @@ inputs:
     type: string
   ssh_user:
     required: true
-    #default: 'damian-scripts'
-    default: 'damian'
+    default: 'damian-scripts'
     type: string
 
 runs:
@@ -41,13 +40,13 @@ runs:
         shell: bash
         run: |
           mkdir -p ~/.ssh
-          
+
           # https://wikitech.wikimedia.org/wiki/Help:SSH_Fingerprints/login.toolforge.org
           cat > ~/.ssh/known_hosts <<EOF
           login.toolforge.org ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDGdp0Qgi9DdNDPkeXixXZeukq8jAdoYGbigjVT5FE49vB+7VzKhL4xet+Y0sWTgkNJdUmNmElfW1f6PiM5s/IqH2Oy4rpwcquxMr//EDUmbu1br1+pJGjmvzSJ9W91A9B1i5EbBi/6sAINRS6+VONXmzOhfcHQROWkg2wW2oQmwDkqLnp8E23P9A2L4A1QcllP1+BuFZe7xH9jQMDpK/bt7SePUfdZZItoWPlqBXehGS/SIyEgbHhOkw91LMshh0wSthOZgIJwmRA+ka0LW9mzfyLkX8PMS87MqtwQOduj6ZNJsC44a/5tP7KYpjkXRR4RPu18cYdNgQPXFZt2PQ56vR5PmqUPcbqmoXNFKeL+/87CKnwOeBIr493J28Ij13t7w3svKLROAgEV3p6alkQ07vvjlHubMKytbRoLZ5ayEzBnp/iJZfhfxQF8OcWZJ0LkWLb2Zzcj8OPDjD6GKDo98j+fWmTbtjPX8tz0B0RrMj3CDqSH9cQGVm55dnwxDEs=
           login.toolforge.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGNwP+8lSo0NF6vl1EM0ZeKY50eedW3g4IwOm+AFNgPp6OZhlha8tjDjynSjXbAxs1I8ngc7L2hHGeaLSwCKf90=
           EOF
-          
+
           cat > ~/.ssh/config <<EOF
           Host login.toolforge.org
             StrictHostKeyChecking yes
@@ -67,12 +66,12 @@ runs:
           then
             cd "${{ inputs.path }}"
           fi
-          
+
           if [ ! -z "${{ inputs.release }}" ];
           then
             export TARGET_RELEASE='${{ inputs.release }}'
           fi
-          
+
           if [ ! -z "${{ inputs.user }}" ];
           then
             export TARGET_USER='${{ inputs.user }}'
