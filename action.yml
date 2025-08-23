@@ -34,7 +34,7 @@ runs:
       - name: Install fabric
         shell: bash
         run: |
-          pip install fabric requests
+          pip install fabric requests PyYAML
 
       - name: Setup SSH
         shell: bash
