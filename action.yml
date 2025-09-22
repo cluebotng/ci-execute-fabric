@@ -15,6 +15,10 @@ inputs:
   task:
     required: true
     type: string
+  argument:
+    required: true
+    type: string
+    default: ''
   ssh_key:
     required: true
     type: string
@@ -77,6 +81,6 @@ runs:
             export TARGET_USER='${{ inputs.user }}'
           fi
 
-          fab '${{ inputs.task }}'
+          fab '${{ inputs.task }}' ${{ inputs.argument }}
         env:
           SSH_AUTH_SOCK: /tmp/ssh-auth.sock
