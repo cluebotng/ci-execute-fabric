@@ -33,7 +33,7 @@ runs:
       - name: Install Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.13
+          python-version: 3.14
 
       - name: Install fabric
         shell: bash
