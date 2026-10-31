@@ -30,15 +30,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-      - name: Install Python
-        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+      - name: setup python
+        uses: infrabits/ci-setup-python@main
         with:
-          python-version: 3.15
-
-      - name: Install fabric
-        shell: bash
-        run: |
-          pip install fabric requests PyYAML
+          install_dependencies: true
+          install_test_dependencies: false
+          install_tox: false
 
       - name: Setup SSH
         shell: bash
