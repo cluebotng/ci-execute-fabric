@@ -31,7 +31,7 @@ runs:
   using: "composite"
   steps:
       - name: setup python
-        uses: infrabits/ci-setup-python@main
+        uses: infrabits/ci-setup-python@9233f26fef5b34b29026b53a08550c8371711536 # main
         with:
           install_dependencies: true
           install_test_dependencies: false
