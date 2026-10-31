@@ -78,6 +78,6 @@ runs:
             export TARGET_USER='${{ inputs.user }}'
           fi
 
-          fab '${{ inputs.task }}' ${{ inputs.argument }}
+          poetry run fab '${{ inputs.task }}' ${{ inputs.argument }}
         env:
           SSH_AUTH_SOCK: /tmp/ssh-auth.sock
